@@ -1,0 +1,38 @@
+idl_version: 0               # meta information
+service_name: recs-algorithms-api
+version: '1'
+
+operations:
+  ctl_recommendations:
+    ctl_by_variant_id:
+      description: get ctl recommendations for vid (visual backend)
+      endpoint: GET /ctl/v
+      query:
+        vid:
+          type: string
+          description: single variant id input for recommendations
+        n_subcats:
+          type: int
+          default: 10
+          description: max number of subcategories to return
+        n_items_per_subcat:
+          type: int
+          default: 10
+          description: max number of items to yield per subcategory response
+        thresh_score_item:
+          type: double
+          default: 0.5
+          description: if given, recommendations with score greather than threshold will be returned
+      response:
+        ok: CtlResponse[]
+models:
+  CtlResponse:
+    subcategory: string
+    dist: float
+    score: float
+    recs: CtlRecommendation[]
+  CtlRecommendation:
+    vid: string
+    dist: float
+    score: float
+

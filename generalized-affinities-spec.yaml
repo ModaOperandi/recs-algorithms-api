@@ -1,0 +1,33 @@
+idl_version: 0               # meta information
+service_name: recs-algorithms-api
+version: '1'
+
+operations:
+  generalized_affinities:
+    get_similarities_for_subcategory:
+      description: query the ANN with an entry from another ANN index
+      endpoint: GET /crossq
+      query:
+        q_id:
+          type: int
+          description: name of the particular record to use as the query (must be a member of the `q_name` index)
+        q_name:
+          type: string
+          description: name of the ANN index to grab query *from*
+        catalog_name:
+          type: string
+          description: name of the ANN index to apply query *to*
+        k:
+          type: int
+          default: 1000
+          description: number of neighbors to get
+        incl_score:
+          type: boolean
+          default: true
+          description: if true, include score in the [0-1] range
+        thresh_score:
+          type: double
+          default: 0.5
+          description: if given, recommendations with score greather than threshold will be returned
+      response:
+        ok: json[]

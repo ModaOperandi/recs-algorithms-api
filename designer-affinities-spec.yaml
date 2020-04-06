@@ -1,0 +1,17 @@
+idl_version: 0
+service_name: recs-algorithms-api
+version: '1'
+
+operations:
+  designer_affinities:
+    designer_affinities_by_user_id:
+      description: get user direct and inferred affinities to designers
+      endpoint: GET /designer_affinity/{id:string}
+      response:
+        ok: DesignerAffinitiesResponse
+models:
+  DesignerAffinitiesResponse:
+    designers: Affinities
+  Affinities:
+    direct: int[]
+    infered: int[]
