@@ -1,5 +1,5 @@
 idl_version: 0
-service_name: recs-algorithms-api
+service_name: designer-affinities-api
 version: '1'
 
 operations:

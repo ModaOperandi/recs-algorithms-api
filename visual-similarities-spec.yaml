@@ -1,5 +1,5 @@
 idl_version: 0               # meta information
-service_name: recs-algorithms-api
+service_name: visual-similarities-api
 version: '1'
 
 operations:
