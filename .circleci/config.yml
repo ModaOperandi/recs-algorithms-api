@@ -1,35 +1,32 @@
 version: 2.1
 
 orbs:
-  goldfish: moda/goldfish@0.14.163
+  spec: moda/spec@0.4.0
 
 workflows:
-  version: 2.1
-
-  validate-spec:
+  specs-validate:
     jobs:
-      - goldfish/spec-validate:
+      - spec/specs-validate:
           name: validate
           context: devops-shared-services
           filters:
             branches:
               ignore: master
 
-  publish-spec:
+  specs-publish:
     jobs:
-      - goldfish/spec-publish:
+      - spec/specs-publish:
           name: publish-spec-dev
           env: dev
           context: devops-shared-services
           filters:
             branches:
               only: master
-
-  publish-spec-prod:
-    jobs:
       - approve-prod:
+          requires:
+            - publish-spec-dev
           type: approval
-      - goldfish/spec-publish:
+      - spec/specs-publish:
           name: publish-spec-prod
           env: prod
           context: devops-shared-services
