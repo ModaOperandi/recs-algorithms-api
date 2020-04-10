@@ -1,4 +1,4 @@
-idl_version: 0               # meta information
+idl_version: 0
 service_name: generalized-affinities-api
 version: '1'
 
