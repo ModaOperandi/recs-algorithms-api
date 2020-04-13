@@ -4,9 +4,9 @@ version: '1'
 
 operations:
   designer_affinities:
-    designer_affinities_by_user_id:
+    get_affinities:
       description: get user direct and inferred affinities to designers
-      endpoint: GET /designer_affinity/{id:string}
+      endpoint: GET /designer_affinity/{user_id:string}
       response:
         ok: DesignerAffinitiesResponse
 models:

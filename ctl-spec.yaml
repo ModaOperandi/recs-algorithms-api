@@ -28,11 +28,11 @@ operations:
 models:
   CtlResponse:
     subcategory: string
-    dist: float
-    score: float
+    dist: double
+    score: double
     recs: CtlRecommendation[]
   CtlRecommendation:
     vid: string
-    dist: float
-    score: float
+    dist: double
+    score: double
 

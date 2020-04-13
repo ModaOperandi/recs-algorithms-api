@@ -4,7 +4,7 @@ version: '1'
 
 operations:
   visual_similarities:
-    get_similarities_for_subcategory:
+    get_visual_similarities:
       description: query the approximate nearest node index for neighbors
       endpoint: POST /ann/{index:string}/query
       body: SimilaritiesPayload

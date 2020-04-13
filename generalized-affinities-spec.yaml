@@ -31,3 +31,4 @@ operations:
           description: if given, recommendations with score greather than threshold will be returned
       response:
         ok: json[]
+
