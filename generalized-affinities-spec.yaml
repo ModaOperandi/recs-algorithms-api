@@ -26,9 +26,16 @@ operations:
           default: true
           description: if true, include score in the [0-1] range
         thresh_score:
-          type: double
+          type: float
           default: 0.5
           description: if given, recommendations with score greather than threshold will be returned
       response:
-        ok: json[]
-
+        ok: GeneralizedAffinitiesResponse
+models:
+  GeneralizedAffinitiesResponse:
+    recs: Recommendations[]
+  Recommendations:
+    id: string
+    type: string
+    score: float?
+    dist: float?

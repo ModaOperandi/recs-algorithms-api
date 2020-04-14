@@ -11,7 +11,7 @@ operations:
         ok: DesignerAffinitiesResponse
 models:
   DesignerAffinitiesResponse:
-    designers: Affinities
-  Affinities:
+    designers: Recommendations
+  Recommendations:
     direct: int[]
     infered: int[]

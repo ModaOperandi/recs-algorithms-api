@@ -1,4 +1,4 @@
-idl_version: 0               # meta information
+idl_version: 0
 service_name: ctl-api
 version: '1'
 
@@ -20,7 +20,7 @@ operations:
           default: 10
           description: max number of items to yield per subcategory response
         thresh_score_item:
-          type: double
+          type: float
           default: 0.5
           description: if given, recommendations with score greather than threshold will be returned
       response:
@@ -28,11 +28,11 @@ operations:
 models:
   CtlResponse:
     subcategory: string
-    dist: double
-    score: double
-    recs: CtlRecommendation[]
-  CtlRecommendation:
+    dist: float?
+    score: float?
+    recs: Recommendation[]
+  Recommendation:
     vid: string
-    dist: double
-    score: double
+    dist: float?
+    score: float?
 

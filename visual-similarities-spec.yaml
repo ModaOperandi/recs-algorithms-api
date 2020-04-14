@@ -1,4 +1,4 @@
-idl_version: 0               # meta information
+idl_version: 0
 service_name: visual-similarities-api
 version: '1'
 
@@ -9,7 +9,7 @@ operations:
       endpoint: POST /ann/{index:string}/query
       body: SimilaritiesPayload
       response:
-        ok: json[]
+        ok: SimilaritiesResponse
 models:
   SimilaritiesPayload:
     id:
@@ -19,9 +19,13 @@ models:
       type: int
       description: number of returned recommendations
     thresh_score:
-      type: double
+      type: float
       description: if given, recommendations with score greather than threshold will be returned
     search_k:
       type: int
       description: always use -1
-
+  SimilaritiesResponse:
+    recs: Recommendations[]
+  Recommendations:
+    vid: string
+    score: float?
