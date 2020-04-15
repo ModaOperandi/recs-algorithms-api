@@ -34,7 +34,7 @@ operations:
 models:
   GeneralizedAffinitiesResponse:
     recs: Recommendations[]
-    type: string
+    id_type: string
   Recommendations:
     id: string
     score: float?
