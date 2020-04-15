@@ -23,7 +23,7 @@ models:
       description: if given, recommendations with score greather than threshold will be returned
     search_k:
       type: int
-      description: always use -1
+      description: always use -1 
   SimilaritiesResponse:
     recs: Recommendations[]
   Recommendations:
