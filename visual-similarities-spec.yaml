@@ -25,7 +25,7 @@ models:
       type: int
       description: always use -1 
   SimilaritiesResponse:
-    recs: Recommendations[]
-  Recommendations:
+    recs: Recommendation[]
+  Recommendation:
     vid: string
     score: float?
