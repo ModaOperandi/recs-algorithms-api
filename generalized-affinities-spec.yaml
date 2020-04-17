@@ -35,7 +35,7 @@ models:
   GeneralizedAffinitiesResponse:
     recs: Recommendations[]
     id_type: string
-  Recommendations:
+  Recommendation:
     id: string
     score: float?
     dist: float?
