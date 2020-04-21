@@ -33,7 +33,7 @@ operations:
         ok: GeneralizedAffinitiesResponse
 models:
   GeneralizedAffinitiesResponse:
-    recs: Recommendations[]
+    recs: Recommendation[]
     id_type: string
   Recommendation:
     id: string
