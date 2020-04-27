@@ -26,6 +26,8 @@ models:
       description: always use -1 
   SimilaritiesResponse:
     recs: Recommendation[]
+    id_type: string
   Recommendation:
-    vid: string
+    id: string
     score: float?
+    dist: float?
