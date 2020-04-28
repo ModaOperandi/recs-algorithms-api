@@ -25,6 +25,10 @@ operations:
           type: boolean
           default: true
           description: if true, include score in the [0-1] range
+        incl_dist:
+          type: boolean
+          default: false
+          description: if true, include score in the [0-1] range
         thresh_score:
           type: float
           default: 0.5
@@ -39,3 +43,4 @@ models:
     id: string
     score: float?
     dist: float?
+

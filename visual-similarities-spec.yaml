@@ -21,9 +21,9 @@ models:
     thresh_score:
       type: float
       description: if given, recommendations with score greather than threshold will be returned
-    search_k:
-      type: int
-      description: always use -1 
+    incl_score:
+      type: boolean
+      description: if true, includes scores
   SimilaritiesResponse:
     recs: Recommendation[]
     id_type: string
