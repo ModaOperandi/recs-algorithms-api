@@ -1,14 +1,14 @@
 version: 2.1
 
 orbs:
-  spec: moda/spec@0.4.0
+  spec: moda/spec@0.6.0
 
 workflows:
   specs-validate:
     jobs:
       - spec/specs-validate:
           name: validate
-          context: devops-shared-services
+          context: devops-dev
           filters:
             branches:
               ignore: master
@@ -18,7 +18,7 @@ workflows:
       - spec/specs-publish:
           name: publish-spec-dev
           env: dev
-          context: devops-shared-services
+          context: devops-dev
           filters:
             branches:
               only: master
@@ -29,7 +29,7 @@ workflows:
       - spec/specs-publish:
           name: publish-spec-prod
           env: prod
-          context: devops-shared-services
+          context: devops-dev
           requires:
             - approve-prod
           filters:
