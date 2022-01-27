@@ -1,37 +1,27 @@
-idl_version: 0
-service_name: ctl-api
-version: '1'
-
-operations:
+spec: 2.1
+name: ctl-api
+version: 1
+http:
   ctl_recommendations:
     ctl_by_variant_id:
-      description: get ctl recommendations for vid (visual backend)
       endpoint: GET /ctl/v
+      description: get ctl recommendations for vid (visual backend)
       query:
-        vid:
-          type: string
-          description: single variant id input for recommendations
-        n_subcats:
-          type: int
-          default: 10
-          description: max number of subcategories to return
-        n_items_per_subcat:
-          type: int
-          default: 10
-          description: max number of items to yield per subcategory response
-        thresh_score_item:
-          type: float
-          default: 0.5
-          description: if given, recommendations with score greather than threshold will be returned
+        vid: string # single variant id input for recommendations
+        n_subcats: int = 10 # max number of subcategories to return
+        n_items_per_subcat: int = 10 # max number of items to yield per subcategory response
+        thresh_score_item: float = 0.5 # if given, recommendations with score greather than threshold will be returned
       response:
         ok: CtlResponse[]
 models:
   CtlResponse:
-    subcategory: string
-    dist: float?
-    score: float?
-    recs: Recommendation[]
+    object:
+      subcategory: string
+      dist: float?
+      score: float?
+      recs: Recommendation[]
   Recommendation:
-    vid: string
-    dist: float?
-    score: float?
+    object:
+      vid: string
+      dist: float?
+      score: float?

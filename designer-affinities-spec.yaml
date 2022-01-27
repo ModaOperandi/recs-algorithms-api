@@ -1,15 +1,15 @@
-idl_version: 0
-service_name: designer-affinities-api
-version: '1'
-
-operations:
+spec: 2.1
+name: designer-affinities-api
+version: 1
+http:
   designer_affinities:
     get_affinities:
-      description: get user direct and inferred affinities to designers
       endpoint: GET /designer_affinity/{user_id:string}
+      description: get user direct and inferred affinities to designers
       response:
         ok: DesignerAffinitiesResponse
 models:
   DesignerAffinitiesResponse:
-    designer_affinity_direct: int[]
-    designer_affinity_inferred: int[]
+    object:
+      designer_affinity_direct: int[]
+      designer_affinity_inferred: int[]

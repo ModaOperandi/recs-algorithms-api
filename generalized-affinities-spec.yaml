@@ -1,46 +1,28 @@
-idl_version: 0
-service_name: generalized-affinities-api
-version: '1'
-
-operations:
+spec: 2.1
+name: generalized-affinities-api
+version: 1
+http:
   generalized_affinities:
     get_affinities:
-      description: query the ANN with an entry from another ANN index
       endpoint: GET /crossq
+      description: query the ANN with an entry from another ANN index
       query:
-        q_id:
-          type: int
-          description: name of the particular record to use as the query (must be a member of the `q_name` index)
-        q_name:
-          type: string
-          description: name of the ANN index to grab query *from*
-        catalog_name:
-          type: string
-          description: name of the ANN index to apply query *to*
-        k:
-          type: int
-          default: 1000
-          description: number of neighbors to get
-        incl_score:
-          type: boolean
-          default: true
-          description: if true, include score in the [0-1] range
-        incl_dist:
-          type: boolean
-          default: false
-          description: if true, include score in the [0-1] range
-        thresh_score:
-          type: float
-          default: 0.5
-          description: if given, recommendations with score greather than threshold will be returned
+        q_id: int # name of the particular record to use as the query (must be a member of the `q_name` index)
+        q_name: string # name of the ANN index to grab query *from*
+        catalog_name: string # name of the ANN index to apply query *to*
+        k: int = 1000 # number of neighbors to get
+        incl_score: boolean = true # if true, include score in the [0-1] range
+        incl_dist: boolean = false # if true, include score in the [0-1] range
+        thresh_score: float = 0.5 # if given, recommendations with score greather than threshold will be returned
       response:
         ok: GeneralizedAffinitiesResponse
 models:
   GeneralizedAffinitiesResponse:
-    recs: Recommendation[]
-    id_type: string
+    object:
+      recs: Recommendation[]
+      id_type: string
   Recommendation:
-    id: string
-    score: float?
-    dist: float?
-
+    object:
+      id: string
+      score: float?
+      dist: float?
